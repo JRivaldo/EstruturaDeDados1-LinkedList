@@ -30,7 +30,7 @@ public class ListaEncadeada {
 	 * no inicio da lista, e o método "add" onde o valor será adicionado no final da lista.
 	 */
 	public void addPosicao(Object obj, int pos){
-		if((pos < 0) || (pos > size)){ //verifica se a posição escolhida é válida, caso não é jogado uma exception.
+		if((pos < 0) || (pos > size)){ //verifica se a posição escolhida é válida, caso não, é jogado uma exception.
 			throw new IndexOutOfBoundsException();
 		}
 		
@@ -38,7 +38,7 @@ public class ListaEncadeada {
 			this.cabeca = new No(obj, this.cabeca);//Nessa linha a "cabeça" recebe o objeto e o "proximo" como a própria cabeça para ficar referenciando a cabeça antes de ser atualizada.
 		}
 		else{
-			No temp = this.getNo(pos - 1); // variável temporária a qual recebe o nó na posição anterior a desejada chamando o método privado "getNo".
+			No temp = this.getNo(pos - 1); // variável temporária a qual recebe o nó na posição anterior a desejada, chamando o método privado "getNo".
 			temp.setProximo(new No(obj, temp.getProximo())); // Atualiza o valor da próxima posição atual com o novo valor e seta a referência do novo valor com a do valor antes de ser atualizado. 
 		}
 		
@@ -58,6 +58,33 @@ public class ListaEncadeada {
 	public void add(Object obj){
 		this.addPosicao(obj, size);// chama o método "addPosicao" passando o objeto e a posição atual do tamanho da lista para ser adicionado no final.
 	}
+	
+	
+public void remover(int pos){
+		
+		if((pos < 0) || (pos > size)){ 
+			throw new IndexOutOfBoundsException();
+		}
+		
+		No aux = this.cabeca;
+		
+		for(int i = 0; i < pos -1; i++){
+			aux = aux.getProximo();			
+		}
+		if(pos == 0){
+			this.cabeca =  this.cabeca.getProximo();
+		}
+		else if(pos == this.size -1){
+			aux.setProximo(null);
+		}
+		else{
+			aux.setProximo(aux.getProximo().getProximo());
+		}		
+		
+		this.size--;
+		
+	}
+	
 	
 	/*
 	 * Esse método abaixo só serve para mostrar todos os valores de variáveis primitivas, como String, Int, Float e etc.
