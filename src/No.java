@@ -1,31 +1,31 @@
 
-public class No {
+public class No<E> {
 
-	private No proximo;
-	private Object objeto; //Resolvi deixa como objeto para ficar mais dinâmico.
+	private No<E> proximo;
+	private E objeto;
 	
-	public No(Object o){
+	public No(E o){
 		this.setObjeto(o);
 	}
 	
-	public No(Object o, No proximo){
+	public No(E o, No<E> proximo){
 		this.objeto = o;
 		this.proximo = proximo;
 	}
 
-	public No getProximo() {
+	public No<E> getProximo() {
 		return proximo;
 	}
 
-	public void setProximo(No proximo) {
+	public void setProximo(No<E> proximo) {
 		this.proximo = proximo;
 	}
 
-	public Object getObjeto() {
+	public E getObjeto() {
 		return objeto;
 	}
 
-	public void setObjeto(Object objeto) {
+	public void setObjeto(E objeto) {
 		this.objeto = objeto;
 	}
 	

@@ -3,7 +3,7 @@ public class Teste {
 	
 	public static void main(String [] args){
 		
-		ListaEncadeada list = new ListaEncadeada();
+		ListaEncadeada<Integer> list = new ListaEncadeada<Integer>();
 		list.add(0);
 		list.add(1);
 		list.add(2);
@@ -12,7 +12,7 @@ public class Teste {
 
 		System.out.println(list.toString());
 		
-		list.remover(2);
+		list.remover(1);
 		
 		System.out.println(list.toString());
 		
